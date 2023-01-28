@@ -20,8 +20,13 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '16.x'
-          path: server
 
+
+      - name: pwd, cd to server
+        run: |
+          pwd
+          cd server
+          
       - name: npm install, build, and test
         run: |
           npm install
@@ -32,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: server
+          path: .
 
   deploy:
     runs-on: ubuntu-latest

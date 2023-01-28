@@ -55,4 +55,4 @@ jobs:
           app-name: 'open-ai-text-app'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EB801B9F31DD449798C58E897F2BF255 }}
-          package: server/dist
+          package: .

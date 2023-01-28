@@ -17,18 +17,14 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Set up Node.js version
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          node-version: '16.x'
+          version: '16.x'
+          working-directory: server
 
-
-      - name: pwd, cd to server
-        run: |
-          pwd
-          cd server
-          
       - name: npm install, build, and test
         run: |
+          cd server
           npm install
           npm run build --if-present
           npm run test --if-present
@@ -59,4 +55,4 @@ jobs:
           app-name: 'open-ai-text-app'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EB801B9F31DD449798C58E897F2BF255 }}
-          package: .
+          package: server/dist

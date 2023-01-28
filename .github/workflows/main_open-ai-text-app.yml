@@ -19,8 +19,7 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v2
         with:
-          version: '16.x'
-          working-directory: server
+          node-version: '16.x'
 
       - name: npm install, build, and test
         run: |
